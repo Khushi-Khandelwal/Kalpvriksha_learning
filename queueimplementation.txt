@@ -1,0 +1,75 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+
+using namespace std;
+
+class Queue{
+    int *arr,size,front,rear;
+    public :Queue(){
+        size=100001;
+        arr=new int[size];
+        front =0;
+        rear=0;
+        
+    }
+    void enqueue(int element){
+        if(rear==size){
+            cout<<"Queue is full";
+        }
+        else{
+            arr[rear]=element;
+            rear++;
+        }
+    }
+    void dequeue(){
+        if(front ==rear){
+            cout<<"Queue is empty";
+            
+        }
+        else{
+            arr[front]=-1;
+            front++;
+            if(front==rear){
+                front =0;
+                rear=0;
+            }
+        }
+    }
+    void display(){
+        if(front ==rear){
+            cout<<"Nothing to show";
+        }
+        else{
+            for(int i=front;i<rear;i++){
+                cout<<arr[i];
+            }
+        }
+    }
+    bool isEmpty(){
+        if(front ==rear){
+            cout<<"true";
+            return true;
+        }
+        return false;
+    }
+};
+int main()
+{
+    cout<<"Hello World";
+    Queue q;
+    q.enqueue(5);
+    q.enqueue(4);
+    q.display();
+    q.dequeue();
+    q.dequeue();
+    q.isEmpty();
+    q.display();
+    return 0;
+}
