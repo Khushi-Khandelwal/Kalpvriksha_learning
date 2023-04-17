@@ -1,0 +1,104 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <bits/stdc++.h>
+
+using namespace std;
+class Node{
+    public:
+    int data;
+    Node* left;
+    Node *right;
+    //List<Node*>child;
+    
+    Node(int d){
+        this->data=d;
+        this->left=NULL;
+        this->right=NULL;
+    }
+    
+    
+    Node * buildTree(Node* root){
+        cout<<"Enter the data"<<endl;
+        int data;
+        cin>>data;
+        root=new Node(data);
+        if(data==-1){
+            return NULL;
+        }
+    
+    cout<<"Enter the data for inserting in left"<<endl;
+    root->left = buildTree(root->left);
+    cout<<"Enter the data for inserting in right"<<endl;
+    root->right = buildTree(root->right);
+    }
+    
+    void levelOrderTraversal(Node* root){
+        queue<Node*>q;
+        q.push(root);
+        //seperator
+        q.push(NULL);
+        
+        while(!q.empty()){
+            Node*temp=q.front();
+            cout<<temp->data<<" ";
+            q.pop();
+        
+        if(temp==NULL){
+            if(!q.empty()){
+                q.push(NULL);
+            }
+        }
+        else{
+            if{temp->left){
+                q.push(temp->left);
+            }
+            if{temp->right){
+                q.push(temp->right);
+            }
+                
+            }
+        }
+    }
+        }
+    }
+    
+    void preOrder(Node*root){
+        if(root==NULL){
+            return;
+        }
+        cout<<root->data<<" ";
+        preOrder(root->left);
+        preOrder(root->right);
+    }
+    void inOrder(Node*root){
+        if(root==NULL){
+            return;
+        }
+        inOrder(root->left);
+        cout<<root->data<<" ";
+        inOrder(root->right);
+    }
+    
+     void postOrder(Node*root){
+        if(root==NULL){
+            return;
+        }
+        postOrder(root->left);
+        postOrder(root->right);
+        cout<<root->data<<" ";
+    }
+    
+    
+};
+int main()
+{
+    cout<<"Hello World";
+
+    return 0;
+}
